@@ -21,3 +21,5 @@ alias vim='nvim -p'
 unalias ag 2>/dev/null || true
 
 alias grbom='git rebase origin/master -i --autostash --autosquash'
+
+if [ -f ~/.aliases.local ]; then source ~/.aliases.local; fi
