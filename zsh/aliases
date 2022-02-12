@@ -20,6 +20,10 @@ alias vi='nvim -p'
 alias vim='nvim -p'
 unalias ag 2>/dev/null || true
 
+alias ipal='ip a l'
+alias wipal='watch ip a l'
+alias p=python3
+
 alias grbom='git rebase origin/master -i --autostash --autosquash'
 
 if [ -f ~/.aliases.local ]; then source ~/.aliases.local; fi
