@@ -1,0 +1,23 @@
+ff(){
+    find . -name "*$1*"
+}
+
+snapshot-root(){
+    sudo lvremove -y /dev/vg1/lv-root-snapshot || true
+    sudo lvcreate -L10G -s -n lv-root-snapshot /dev/vg1/lv-root
+}
+
+upgrade-smart(){
+    pacin archlinux-keyring
+    yay -Syuw --noconfirm
+    snapshot-root
+    yay -Syu --noconfirm
+}
+
+alias p=python3
+alias v='nvim -p'
+alias vi='nvim -p'
+alias vim='nvim -p'
+unalias ag 2>/dev/null || true
+
+alias grbom='git rebase origin/master -i --autostash --autosquash'
