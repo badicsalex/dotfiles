@@ -2,9 +2,9 @@
 set -euxo pipefail
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-ln -sfn $SCRIPT_DIR/aliases ~/.aliases
-ln -sfn $SCRIPT_DIR/zshrc ~/.zshrc
-ln -sfn $SCRIPT_DIR/alex.zsh-theme ~/.oh-my-zsh/themes/alex.zsh-theme
+ln -sfn $SCRIPT_DIR/zsh/aliases ~/.aliases
+ln -sfn $SCRIPT_DIR/zsh/zshrc ~/.zshrc
+ln -sfn $SCRIPT_DIR/zsh/alex.zsh-theme ~/.oh-my-zsh/themes/alex.zsh-theme
 
 mkdir -p ~/.config/nvim/lua
 mkdir -p ~/.config/nvim/colors
