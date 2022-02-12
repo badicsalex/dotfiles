@@ -31,14 +31,11 @@ au BufRead,BufNewFile *.ebnf set filetype=tatsu
 call plug#begin()
     Plug 'vim-airline/vim-airline'
     Plug 'sheerun/vim-polyglot'
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/lsp_extensions.nvim'
 
-
     Plug 'numirias/semshi'
-    Plug 'jackguo380/vim-lsp-cxx-highlight'
 
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
