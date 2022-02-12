@@ -67,6 +67,12 @@ require'lspconfig'.pyright.setup{
     on_attach = on_attach,
 }
 
+require'lspconfig'.clangd.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+    handlers = semantic_token_handlers,
+}
+
 require'lspconfig'.rust_analyzer.setup({
     capabilities = capabilities,
     -- on_attach is a callback called when the language server attachs to the buffer
