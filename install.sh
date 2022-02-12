@@ -9,8 +9,10 @@ ln -sfn $SCRIPT_DIR/zsh/alex.zsh-theme ~/.oh-my-zsh/themes/alex.zsh-theme
 mkdir -p ~/.config/nvim/lua
 mkdir -p ~/.config/nvim/colors
 mkdir -p ~/.config/nvim/syntax
+mkdir -p ~/.config/nvim/after/syntax
 
 ln -sfn $SCRIPT_DIR/nvim/init.vim  ~/.config/nvim/init.vim
 ln -sfn $SCRIPT_DIR/nvim/config.lua  ~/.config/nvim/lua/config.lua
 ln -sfn $SCRIPT_DIR/nvim/monokai_ad.vim ~/.config/nvim/colors/monokai_ad.vim
 ln -sfn $SCRIPT_DIR/nvim/syntax/tatsu.vim ~/.config/nvim/syntax/tatsu.vim
+ln -sfn $SCRIPT_DIR/nvim/syntax/c_after.vim ~/.config/nvim/after/syntax/c.vim
