@@ -53,6 +53,7 @@ call plug#begin()
     Plug 'scrooloose/nerdtree'
     Plug 'glench/vim-jinja2-syntax'
 
+    Plug 'mhinz/vim-signify'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
