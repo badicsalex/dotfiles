@@ -24,30 +24,7 @@ local on_attach = function(client, bufnr)
 
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities['workspace']['semanticTokens'] = {refreshSupport = true}
-
-require'lspconfig'.pyright.setup{
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
-
-require'lspconfig'.rust_analyzer.setup({
-    capabilities = capabilities,
-    -- on_attach is a callback called when the language server attachs to the buffer
-    on_attach = on_attach,
-    settings = {
-        -- to enable rust-analyzer settings visit:
-        -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-        ["rust-analyzer"] = {
-            -- enable clippy on save
-            checkOnSave = {
-                command = "clippy"
-            },
-        }
-    },
-
-  handlers = {
+local semantic_token_handlers = {
     ['workspace/semanticTokens/refresh'] = function(err,  params, ctx, config)
         vim.lsp.buf_request(0, 'textDocument/semanticTokens/full',
           { textDocument = vim.lsp.util.make_text_document_params() }, nil)
@@ -80,7 +57,32 @@ require'lspconfig'.rust_analyzer.setup({
         -- require('vim.lsp.log').debug(bufnr, ns, 'LspSemantic_' .. token_type, prev_line, byte_start, byte_end)
       end
     end
-  },
+  }
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities['workspace']['semanticTokens'] = {refreshSupport = true}
+
+require'lspconfig'.pyright.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+require'lspconfig'.rust_analyzer.setup({
+    capabilities = capabilities,
+    -- on_attach is a callback called when the language server attachs to the buffer
+    on_attach = on_attach,
+    handlers = semantic_token_handlers,
+    settings = {
+        -- to enable rust-analyzer settings visit:
+        -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+        ["rust-analyzer"] = {
+            -- enable clippy on save
+            checkOnSave = {
+                command = "clippy"
+            },
+        }
+    },
+
 })
 
 
