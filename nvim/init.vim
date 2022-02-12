@@ -42,11 +42,10 @@ call plug#begin()
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-buffer'
 
+    Plug 'hrsh7th/vim-vsnip'
     Plug 'ray-x/lsp_signature.nvim'
 
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'hrsh7th/vim-vsnip'
-
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-ui-select.nvim'
 
