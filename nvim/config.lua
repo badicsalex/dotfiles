@@ -22,6 +22,15 @@ local on_attach = function(client, bufnr)
       ]]
     end
 
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd [[
+        augroup Format
+          autocmd! * <buffer>
+          autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync({},1500)
+        augroup END
+      ]]
+    end
+
 end
 
 local semantic_token_handlers = {
