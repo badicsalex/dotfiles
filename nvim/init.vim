@@ -61,10 +61,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-" Always show sign column, so it doesn't pop in and out
-set signcolumn=yes
-
-
 " Set correct color scheme and fix semshi's awful awful colors
 set termguicolors
 colorscheme monokai_ad

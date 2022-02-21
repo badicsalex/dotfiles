@@ -31,6 +31,8 @@ local on_attach = function(client, bufnr)
       ]]
     end
 
+    vim.cmd('sign place 25252 line=30000 name=dummy buffer=' .. bufnr)
+
 end
 
 local semantic_token_handlers = {
@@ -159,7 +161,7 @@ vim.diagnostic.config({
 })
 
 
-
+vim.cmd [[sign define dummy text=\ ]]
 
 vim.cmd [[highlight link LspSemantic_attribute Define]]
 vim.cmd [[highlight link LspSemantic_enum Type]]
