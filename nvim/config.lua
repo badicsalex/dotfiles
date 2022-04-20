@@ -39,11 +39,14 @@ end
 local semantic_token_handlers = {
     ['workspace/semanticTokens/refresh'] = function(err,  params, ctx, config)
         vim.lsp.buf_request(0, 'textDocument/semanticTokens/full',
-          { textDocument = vim.lsp.util.make_text_document_params() }, nil)
+          {
+            textDocument = vim.lsp.util.make_text_document_params(),
+            tick = vim.api.nvim_buf_get_changedtick(0)
+          }, nil)
       return vim.NIL
     end,
     ['textDocument/semanticTokens/full'] = function(err,  result, ctx, config)
-      if not result then
+      if err or not result or ctx.params.tick ~= vim.api.nvim_buf_get_changedtick(ctx.bufnr) then
         return
       end
       -- temporary handler until native support lands
