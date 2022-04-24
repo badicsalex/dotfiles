@@ -31,9 +31,9 @@ syn match ebnfSpecial /[~+*%\.]/ contained
 syn region ebnfPattern matchgroup=Delimiter start=/\// end=/\// contained
 syn region ebnfSpecialSequence matchgroup=Delimiter start=/?\// end=/\/?/ contained
 syn match ebnfEndProduction /[;]/ contained
-syn region ebnfTerminal matchgroup=delimiter start=/"/ end=/"/ contained
-syn region ebnfTerminal matchgroup=delimiter start=/'/ end=/'/ contained
-syn region ebnfConstant matchgroup=delimiter start=/`/ end=/`/ contained
+syn region ebnfTerminal matchgroup=delimiter start=/"/ skip=/\\"/ end=/"/ contained
+syn region ebnfTerminal matchgroup=delimiter start=/'/ skip=/\\"/ end=/'/ contained
+syn region ebnfConstant matchgroup=delimiter start=/`/ skip=/\\"/ end=/`/ contained
 
 syn region ebnfComment start="#" end="$" contains=ebnfTodo
 syn region ebnfComment start="(\*" end="\*)" contains=ebnfTodo
