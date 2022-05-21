@@ -2,32 +2,18 @@ local M = {}
 
 -- TODO: backfill this to template
 M.setup = function()
-  local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
-  }
-
-  for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-  end
-
   local config = {
     -- disable virtual text
-    virtual_text = false,
-    -- show signs
-    signs = {
-      active = signs,
+    virtual_text = {
+        severity = vim.diagnostic.severity.WARNING,
+        source = "if_many",
     },
-    update_in_insert = true,
-    underline = true,
     severity_sort = true,
     float = {
       focusable = false,
       style = "minimal",
       border = "rounded",
-      source = "always",
+      source = "if_many",
       header = "",
       prefix = "",
     },
@@ -42,6 +28,8 @@ M.setup = function()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "rounded",
   })
+
+  require("user.lsp.semantic-highlight").setup()
 end
 
 local function lsp_highlight_document(client)
@@ -61,26 +49,30 @@ local function lsp_highlight_document(client)
 end
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    "n",
-    "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
-    opts
-  )
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+
+  local wk_opts = {
+    buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+  }
+
+  local wk_mappings = {
+    g = {
+      D = { [[<cmd>lua vim.lsp.buf.declaration()<CR>]], "Go to declaration"},
+      d = { [[<cmd>lua require('telescope.builtin').lsp_definitions()<CR>]], "Go to definition"},
+      i = { [[<cmd>lua require('telescope.builtin').lsp_implementations()<CR>]], "Go to implementation"},
+      r = { [[<cmd>lua require('telescope.builtin').lsp_references()<CR>]], "Show References" },
+      a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', "Code action" },
+      n = { '<cmd>lua vim.lsp.buf.rename()<CR>', "Rename"},
+    },
+    K = {'<cmd>lua vim.lsp.buf.hover()<CR>', "Hover"},
+    e = {'<cmd>lua vim.diagnostic.open_float(nil, { focusable = false })<CR>', "Show errors"},
+  }
+
+  local which_key = require("which-key")
+  which_key.setup(setup)
+  which_key.register(wk_mappings, wk_opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
@@ -99,6 +91,8 @@ if not status_ok then
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities['workspace']['semanticTokens'] = {refreshSupport = true}
 
+M.capabilities = capabilities
 return M

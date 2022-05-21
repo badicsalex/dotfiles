@@ -28,6 +28,11 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+  augroup ebnf
+    autocmd!
+    autocmd BufRead,BufNewFile *.ebnf set filetype=ebnf
+  augroup end
 ]]
 
 -- Autoformat

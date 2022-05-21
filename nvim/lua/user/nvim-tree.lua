@@ -1,25 +1,27 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
+  default = " ",
+  symlink = "➜",
   git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
+    unstaged = "~",
+    staged = "✓",
+    unmerged = "?",
     renamed = "➜",
-    deleted = "",
+    deleted = "✗",
     untracked = "U",
-    ignored = "◌",
+    ignored = "",
   },
   folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
+    default = "🗀",
+    open = "🗀",
+    empty = "🗀",
+    empty_open = "🗀",
+    symlink = "➜",
+    arrow_open = "▾",
+    arrow_closed = "▸",
   },
-}
+} 
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
@@ -42,7 +44,6 @@ nvim_tree.setup {
     "dashboard",
     "alpha",
   },
-  auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
@@ -53,10 +54,10 @@ nvim_tree.setup {
   diagnostics = {
     enable = true,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = "H",
+      info = "I",
+      warning = "W",
+      error = "E",
     },
   },
   update_focused_file = {
@@ -93,20 +94,18 @@ nvim_tree.setup {
     },
     number = false,
     relativenumber = false,
+    signcolumn = "no",
   },
   trash = {
     cmd = "trash",
     require_confirm = true,
   },
-  quit_on_open = 0,
-  git_hl = 1,
-  disable_window_picker = 0,
-  root_folder_modifier = ":t",
-  show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1,
-    tree_width = 30,
+  renderer = {
+    indent_markers = { enable = true },
+    icons = {
+      git_placement = "after",
+    },
   },
 }
+
+vim.cmd [[ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() && len(filter(getbufinfo(), 'v:val.changed == 1')) == 0 | quit | endif ]]

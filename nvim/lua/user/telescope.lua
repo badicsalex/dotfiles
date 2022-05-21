@@ -8,8 +8,8 @@ local actions = require "telescope.actions"
 telescope.setup {
   defaults = {
 
-    prompt_prefix = " ",
-    selection_caret = " ",
+--    prompt_prefix = " ",
+--    selection_caret = " ",
     path_display = { "smart" },
 
     mappings = {
@@ -87,10 +87,12 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      }
+    }
   },
 }
+
+require("telescope").load_extension("ui-select")
