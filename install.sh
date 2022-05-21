@@ -14,5 +14,5 @@ mkdir -p ~/.config/nvim/after/syntax
 ln -sfn $SCRIPT_DIR/nvim/init.lua  ~/.config/nvim/init.lua
 ln -sfn $SCRIPT_DIR/nvim/lua  ~/.config/nvim/lua
 ln -sfn $SCRIPT_DIR/nvim/monokai_ad.vim ~/.config/nvim/colors/monokai_ad.vim
-ln -sfn $SCRIPT_DIR/nvim/syntax/tatsu.vim ~/.config/nvim/syntax/tatsu.vim
+ln -sfn $SCRIPT_DIR/nvim/syntax/ebnf.vim ~/.config/nvim/syntax/ebnf.vim
 ln -sfn $SCRIPT_DIR/nvim/syntax/c_after.vim ~/.config/nvim/after/syntax/c.vim

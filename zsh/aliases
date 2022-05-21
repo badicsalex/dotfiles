@@ -3,9 +3,9 @@ ff(){
 }
 
 alias p=python3
-alias v='nvim -p'
-alias vi='nvim -p'
-alias vim='nvim -p'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 unalias ag 2>/dev/null || true
 
 alias ipal='ip a l'
