@@ -104,7 +104,7 @@ M.setup = function()
   vim.cmd [[hi LspReferenceRead cterm=underline gui=underline]]
   vim.cmd [[hi LspReferenceWrite cterm=underline gui=underline]]
 
-  vim.lsp.set_log_level("DEBUG")
+  -- vim.lsp.set_log_level("DEBUG")
 end
 
 return M
