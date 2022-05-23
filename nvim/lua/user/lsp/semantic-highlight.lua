@@ -38,8 +38,8 @@ M.setup = function()
       prev_start = delta_line == 0 and prev_start + delta_start or delta_start
       local token_type = token_types[data[i + 3] + 1]
       local line = vim.api.nvim_buf_get_lines(bufnr, prev_line, prev_line + 1, false)[1]
-      local byte_start = vim.str_byteindex(line, prev_start)
-      local byte_end = vim.str_byteindex(line, prev_start + data[i + 2])
+      local byte_start = vim.str_byteindex(line, prev_start, true)
+      local byte_end = vim.str_byteindex(line, prev_start + data[i + 2], true)
       vim.api.nvim_buf_add_highlight(bufnr, ns, 'LspSemantic_' .. token_type, prev_line, byte_start, byte_end)
       -- require('vim.lsp.log').debug(bufnr, ns, 'LspSemantic_' .. token_type, prev_line, byte_start, byte_end)
     end
