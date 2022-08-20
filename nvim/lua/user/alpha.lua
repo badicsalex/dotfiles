@@ -34,7 +34,7 @@ end
 -- dashboard.section.footer.val = footer()
 
 dashboard.section.footer.opts.hl = "Type"
-dashboard.section.header.opts.hl = "Identifier"
+dashboard.section.header.opts.hl = "Parameter"
 dashboard.section.buttons.opts.hl = "Keyword"
 
 dashboard.opts.opts.noautocmd = true
