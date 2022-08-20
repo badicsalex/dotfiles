@@ -59,9 +59,9 @@ nvim_tree.setup {
         },
         folder = {
           default = "🗀",
-          open = "🗀",
+          open = "🗁",
           empty = "🗀",
-          empty_open = "🗀",
+          empty_open = "🗁",
           symlink = "➜",
           arrow_open = "▾",
           arrow_closed = "▸",
