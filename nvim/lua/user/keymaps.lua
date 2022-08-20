@@ -19,8 +19,6 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-PageUp>", ":bnext<CR>", opts)
 keymap("n", "<S-PageDown>", ":bprevious<CR>", opts)
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
