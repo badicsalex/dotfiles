@@ -22,10 +22,10 @@ nvim_tree.setup {
     enable = true,
     show_on_dirs = true,
     icons = {
-      hint = "H",
-      info = "I",
-      warning = "W",
-      error = "E",
+      hint = "ⓘ",
+      info = "ⓘ",
+      warning = "Ⓧ",
+      error = "Ⓧ",
     },
   },
   update_focused_file = {
@@ -39,7 +39,7 @@ nvim_tree.setup {
         { key = "v", cb = tree_cb "vsplit" },
       },
     },
-    signcolumn = "no",
+    signcolumn = "yes",
   },
   renderer = {
     indent_markers = { enable = true },
