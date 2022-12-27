@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 
-local servers = { "clangd", "pyright", "rust_analyzer" }
+local servers = { "clangd", "pyright", "rust_analyzer", "wgsl_analyzer" }
 
 for _, server in pairs(servers) do
 	local opts = {
