@@ -73,7 +73,7 @@ local function lsp_keymaps(bufnr)
   local which_key = require("which-key")
   which_key.setup(setup)
   which_key.register(wk_mappings, wk_opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
 M.on_attach = function(client, bufnr)
