@@ -177,3 +177,4 @@ hi Parameter ctermfg=246 ctermbg=NONE cterm=NONE guifg=#fc9867 guibg=NONE gui=NO
 hi TraitType ctermfg=116 ctermbg=NONE cterm=NONE guifg=#78dce8 guibg=NONE gui=italic
 hi Property ctermfg=116 ctermbg=NONE cterm=NONE guifg=#e0e0d0 guibg=NONE gui=NONE
 hi def link @lsp.type.parameter Parameter
+hi def link rustQuestionMark Statement
