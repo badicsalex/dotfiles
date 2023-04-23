@@ -28,8 +28,6 @@ M.setup = function()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "rounded",
   })
-
-  require("user.lsp.semantic-highlight").setup()
 end
 
 local function lsp_highlight_document(client)

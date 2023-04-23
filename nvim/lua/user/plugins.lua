@@ -82,7 +82,6 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 --  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "arkav/lualine-lsp-progress" -- $/progress endpoint as a statusline component for lualine.nvim.
-  use "theHamsta/nvim-semantic-tokens"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"

@@ -46,7 +46,7 @@ hi ErrorMsg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi Float ctermfg=147 ctermbg=NONE cterm=NONE guifg=#ab9df2 guibg=NONE gui=NONE
 hi Function ctermfg=150 ctermbg=NONE cterm=NONE guifg=#a9dc76 guibg=NONE gui=NONE
-hi Identifier ctermfg=116 ctermbg=NONE cterm=NONE guifg=#78dce8 guibg=NONE gui=italic
+hi Identifier ctermfg=116 ctermbg=NONE cterm=NONE guifg=#fcfcfa guibg=NONE gui=NONE
 hi Keyword ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff6188 guibg=NONE gui=NONE
 hi Label ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff6188 guibg=NONE gui=NONE
 hi NonText ctermfg=240 ctermbg=59 cterm=NONE guifg=#5b595c guibg=#181818 gui=NONE
@@ -56,7 +56,7 @@ hi Operator ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff6188 guibg=NONE gui=NON
 hi PreProc ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff6188 guibg=NONE gui=NONE
 hi SpecialKey ctermfg=240 ctermbg=59 cterm=NONE guifg=#5b595c guibg=#201c20 gui=NONE
 hi Statement ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff6188 guibg=NONE gui=NONE
-hi StorageClass ctermfg=116 ctermbg=NONE cterm=NONE guifg=#78dce8 guibg=NONE gui=italic
+hi StorageClass ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff6188 guibg=NONE gui=NONE
 hi String ctermfg=221 ctermbg=NONE cterm=NONE guifg=#ffe8a8 guibg=NONE gui=NONE
 hi Tag ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff6188 guibg=NONE gui=NONE
 hi Title ctermfg=231 ctermbg=NONE cterm=bold guifg=#fcfcfa guibg=NONE gui=bold
@@ -176,3 +176,4 @@ hi Unresolved ctermfg=246 ctermbg=NONE cterm=NONE guifg=NONE guibg=#400000 gui=N
 hi Parameter ctermfg=246 ctermbg=NONE cterm=NONE guifg=#fc9867 guibg=NONE gui=NONE
 hi TraitType ctermfg=116 ctermbg=NONE cterm=NONE guifg=#78dce8 guibg=NONE gui=italic
 hi Property ctermfg=116 ctermbg=NONE cterm=NONE guifg=#e0e0d0 guibg=NONE gui=NONE
+hi def link @lsp.type.parameter Parameter
