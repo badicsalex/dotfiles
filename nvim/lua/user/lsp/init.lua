@@ -6,3 +6,7 @@ end
 require "user.lsp.configs"
 require("user.lsp.handlers").setup()
 require "user.lsp.null-ls"
+
+require('illuminate').configure({
+    under_cursor = false,
+})
