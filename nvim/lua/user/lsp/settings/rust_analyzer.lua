@@ -7,6 +7,9 @@ return {
             checkOnSave = {
                 command = "clippy"
             },
+            check = {
+                allTargets = false
+            },
         }
 	},
     cmd = {"rustup", "run", "stable", "rust-analyzer"},
