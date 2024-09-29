@@ -33,6 +33,12 @@ vim.cmd [[
     autocmd!
     autocmd BufRead,BufNewFile *.ebnf set filetype=ebnf
   augroup end
+
+  augroup _text
+    autocmd!
+    autocmd FileType text setlocal tw=70
+    autocmd FileType text setlocal spell
+  augroup end
 ]]
 
 -- Autoformat
