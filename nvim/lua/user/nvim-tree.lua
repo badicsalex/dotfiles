@@ -21,16 +21,16 @@ nvim_tree.setup {
   on_attach = on_attach,
   disable_netrw = true,
   update_cwd = true,
-  --diagnostics = {
-  --  enable = true,
-  --  show_on_dirs = true,
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
   --  icons = {
   --    --hint = "ⓘ",
   --    --info = "ⓘ",
   --    --warning = "Ⓧ",
   --    --error = "Ⓧ",
   --  },
-  --},
+  },
   --update_focused_file = {
   --  enable = true,
   --},
