@@ -42,8 +42,8 @@ nvim_tree.setup {
     icons = {
       git_placement = "after",
       glyphs = {
-        default = " ",
-        symlink = "➜",
+  --    default = " ",
+  --    symlink = "➜",
   --      git = {
   --        --unstaged = "~",
   --        --staged = "✓",
