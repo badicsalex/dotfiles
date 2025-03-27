@@ -65,39 +65,11 @@ local function lsp_highlight_document(client)
   -- end
 end
 
-local function lsp_keymaps(bufnr)
-
-  local wk_opts = {
-    buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-  }
-
-  local wk_mappings = {
-    g = {
-      D = { [[<cmd>lua vim.lsp.buf.declaration()<CR>]], "Go to declaration"},
-      d = { [[<cmd>lua require('telescope.builtin').lsp_definitions()<CR>]], "Go to definition"},
-      i = { [[<cmd>lua require('telescope.builtin').lsp_implementations()<CR>]], "Go to implementation"},
-      r = { [[<cmd>lua require('telescope.builtin').lsp_references()<CR>]], "Show References" },
-      a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', "Code action" },
-      n = { '<cmd>lua vim.lsp.buf.rename()<CR>', "Rename"},
-    },
-    K = {'<cmd>lua vim.lsp.buf.hover()<CR>', "Hover"},
-    e = {'<cmd>lua vim.diagnostic.open_float(nil, { focusable = false })<CR>', "Show errors"},
-  }
-
-  local which_key = require("which-key")
-  which_key.setup(setup)
-  which_key.register(wk_mappings, wk_opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
-end
-
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.server_capabilities.formatting = false
   end
-  lsp_keymaps(bufnr)
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
   lsp_highlight_document(client)
 end
 
