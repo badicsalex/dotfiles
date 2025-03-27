@@ -21,22 +21,22 @@ nvim_tree.setup {
   on_attach = on_attach,
   disable_netrw = true,
   update_cwd = true,
-  diagnostics = {
-    enable = true,
-    show_on_dirs = true,
-    icons = {
-      hint = "ⓘ",
-      info = "ⓘ",
-      warning = "Ⓧ",
-      error = "Ⓧ",
-    },
-  },
-  update_focused_file = {
-    enable = true,
-  },
-  view = {
-    signcolumn = "yes",
-  },
+  --diagnostics = {
+  --  enable = true,
+  --  show_on_dirs = true,
+  --  icons = {
+  --    --hint = "ⓘ",
+  --    --info = "ⓘ",
+  --    --warning = "Ⓧ",
+  --    --error = "Ⓧ",
+  --  },
+  --},
+  --update_focused_file = {
+  --  enable = true,
+  --},
+  --view = {
+  --  signcolumn = "yes",
+  --},
   renderer = {
     indent_markers = { enable = true },
     icons = {
@@ -44,24 +44,24 @@ nvim_tree.setup {
       glyphs = {
         default = " ",
         symlink = "➜",
-        git = {
-          unstaged = "~",
-          staged = "✓",
-          unmerged = "?",
-          renamed = "➜",
-          deleted = "✗",
-          untracked = "U",
-          ignored = "",
-        },
-        folder = {
-          default = "🗀",
-          open = "🗁",
-          empty = "🗀",
-          empty_open = "🗁",
-          symlink = "➜",
-          arrow_open = "▾",
-          arrow_closed = "▸",
-        },
+  --      git = {
+  --        --unstaged = "~",
+  --        --staged = "✓",
+  --        --unmerged = "?",
+  --        --renamed = "➜",
+  --        --deleted = "✗",
+  --        --untracked = "U",
+  --        --ignored = "",
+  --      },
+  --      folder = {
+  --        --default = "🗀",
+  --        --open = "🗁",
+  --        --empty = "🗀",
+  --        --empty_open = "🗁",
+  --        --symlink = "➜",
+  --        --arrow_open = "▾",
+  --        --arrow_closed = "▸",
+  --      },
       } 
     },
   },
