@@ -31,9 +31,9 @@ nvim_tree.setup {
   --    --error = "Ⓧ",
   --  },
   },
-  --update_focused_file = {
-  --  enable = true,
-  --},
+  update_focused_file = {
+    enable = true,
+  },
   --view = {
   --  signcolumn = "yes",
   --},
