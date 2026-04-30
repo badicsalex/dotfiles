@@ -3,14 +3,13 @@ return {
         -- to enable rust-analyzer settings visit:
         -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
         ["rust-analyzer"] = {
-            -- enable clippy on save
-            checkOnSave = {
-                command = "clippy"
+            diagnostics = {
+                warningsAsHint = {"unexpected_cfgs"}
             },
-            check = {
-                allTargets = false
+            cargo = {
+                allTargets = false,
+                targetDir = true,
             },
         }
 	},
-    cmd = {"rustup", "run", "stable", "rust-analyzer"},
 }
