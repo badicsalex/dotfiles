@@ -1,21 +1,30 @@
+vim.loader.enable() -- cache Lua modules; must come first
+
+-- Core settings. keymaps sets <leader>, so it precedes all plugin configs.
 require "user.options"
 require "user.keymaps"
 require "user.abbrev"
+require "user.autocommands"
+
+-- Plugin manager, then the colorscheme: UI plugins read highlights at setup.
 require "user.plugins"
 require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
+
+-- project loads a telescope extension, so telescope comes first.
 require "user.telescope"
-require "user.treesitter"
+
+-- Plugin configs
+require "user.alpha"
 require "user.autopairs"
+require "user.bufferline"
+require "user.cmp"
 require "user.comment"
 require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.lualine"
-require "user.project"
-require "user.impatient"
+require "user.illuminate"
 require "user.indentline"
-require "user.alpha"
+require "user.lsp"
+require "user.lualine"
+require "user.nvim-tree"
+require "user.project"
+require "user.treesitter"
 require "user.whichkey"
-require "user.autocommands"
