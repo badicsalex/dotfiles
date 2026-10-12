@@ -6,7 +6,4 @@ vim.cmd [[
   hi IlluminatedWordRead ctermbg=NONE guibg=NONE gui=underline
   hi IlluminatedWordText ctermbg=NONE guibg=NONE gui=underline
   hi IlluminatedWordWrite ctermbg=NONE guibg=NONE gui=underline
-  hi LspReferenceRead ctermbg=NONE guibg=NONE gui=underline
-  hi LspReferenceText ctermbg=NONE guibg=NONE gui=underline
-  hi LspReferenceWrite ctermbg=NONE guibg=NONE gui=underline
 ]]
