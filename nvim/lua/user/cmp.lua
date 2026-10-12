@@ -122,3 +122,5 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+cmp.setup.filetype("book", { enabled = false })

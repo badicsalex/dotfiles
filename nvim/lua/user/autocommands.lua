@@ -36,6 +36,22 @@ vim.cmd [[
     autocmd BufRead,BufNewFile *.ebnf set filetype=ebnf
   augroup end
 
+  augroup _book
+    autocmd!
+    autocmd BufRead,BufNewFile *.book set filetype=book
+    autocmd FileType book setlocal wrap linebreak tw=0
+    autocmd FileType book setlocal spell
+    autocmd FileType book setlocal spellcapcheck=
+    autocmd FileType book setlocal cursorlineopt=number
+    autocmd FileType book nnoremap <buffer> j gj
+    autocmd FileType book nnoremap <buffer> k gk
+    autocmd FileType book noremap  <buffer> <Down> gj
+    autocmd FileType book noremap  <buffer> <Up>   gk
+    autocmd FileType book inoremap <buffer> <Down> <C-o>gj
+    autocmd FileType book inoremap <buffer> <Up>   <C-o>gk
+    autocmd FileType book exe 'setlocal spellfile=' . expand('%:p:h') . '/words.utf-8.add'
+  augroup end
+
   augroup _text
     autocmd!
     autocmd FileType text setlocal tw=70
