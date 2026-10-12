@@ -49,6 +49,7 @@ wk.add({
   { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
   { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
   { "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+  { "<leader>n", "<cmd>NoNeckPain<cr>", desc = "No Neck Pain" },
   { "<leader>p", group = "Packer" },
   { "<leader>pS", "<cmd>PackerStatus<cr>", desc = "Status" },
   { "<leader>pc", "<cmd>PackerCompile<cr>", desc = "Compile" },
