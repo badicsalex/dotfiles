@@ -11,7 +11,9 @@ vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
-vim.keymap.del("n", "grn")
-vim.keymap.del("n", "gra")
-vim.keymap.del("n", "grr")
-vim.keymap.del("n", "gri")
+-- Our gr (references) would wait for a second key while any default gr* map exists.
+for _, map in ipairs(vim.api.nvim_get_keymap "n") do
+  if map.lhs:match "^gr." then
+    vim.keymap.del("n", map.lhs)
+  end
+end
