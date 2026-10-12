@@ -1,8 +1,3 @@
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
-	return
-end
-
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
@@ -19,7 +14,7 @@ local filetype = {
 	icon = nil,
 }
 
-lualine.setup({
+require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		theme = "tokyonight",

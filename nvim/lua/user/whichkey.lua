@@ -1,7 +1,4 @@
-local status_ok, wk = pcall(require, "which-key")
-if not status_ok then
-  return
-end
+local wk = require "which-key"
 
 wk.setup({
     win = {
@@ -50,12 +47,8 @@ wk.add({
   { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
   { "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
   { "<leader>n", "<cmd>NoNeckPain<cr>", desc = "No Neck Pain" },
-  { "<leader>p", group = "Packer" },
-  { "<leader>pS", "<cmd>PackerStatus<cr>", desc = "Status" },
-  { "<leader>pc", "<cmd>PackerCompile<cr>", desc = "Compile" },
-  { "<leader>pi", "<cmd>PackerInstall<cr>", desc = "Install" },
-  { "<leader>ps", "<cmd>PackerSync<cr>", desc = "Sync" },
-  { "<leader>pu", "<cmd>PackerUpdate<cr>", desc = "Update" },
+  { "<leader>p", group = "Plugins" },
+  { "<leader>pu", "<cmd>lua vim.pack.update()<cr>", desc = "Update" },
   { "<leader>q", "<cmd>q!<CR>", desc = "Quit" },
   { "<leader>s", group = "Search" },
   { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },

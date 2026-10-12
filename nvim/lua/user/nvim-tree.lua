@@ -1,10 +1,5 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-  return
-end
-
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
 
@@ -17,7 +12,7 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
 end
 
-nvim_tree.setup {
+require("nvim-tree").setup {
   on_attach = on_attach,
   disable_netrw = true,
   update_cwd = true,
