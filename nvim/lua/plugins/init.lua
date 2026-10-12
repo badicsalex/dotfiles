@@ -23,3 +23,16 @@ vim.pack.add {
 
   "https://github.com/lewis6991/gitsigns.nvim",
 }
+
+-- UI plugins read highlights at setup, so the colorscheme comes first.
+require "plugins.colorscheme"
+require "plugins.alpha"
+require "plugins.bufferline"
+require "plugins.cmp"
+require "plugins.gitsigns"
+require "plugins.illuminate"
+require "plugins.lualine"
+require "plugins.no-neck-pain"
+require "plugins.nvim-tree"
+require "plugins.telescope"
+require "plugins.whichkey"
