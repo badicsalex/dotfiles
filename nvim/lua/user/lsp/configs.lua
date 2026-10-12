@@ -1,4 +1,4 @@
-local servers = { "clangd", "pyright", "rust_analyzer", "wgsl_analyzer", "html" }
+local servers = { "clangd", "rust_analyzer", "html" }
 
 for _, server in pairs(servers) do
 	local opts = {

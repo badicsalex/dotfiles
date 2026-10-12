@@ -28,31 +28,6 @@ M.setup = function()
   }
 
   vim.diagnostic.config(config)
-
-  vim.lsp.handlers["wgsl-analyzer/requestConfiguration"] = function(err, result, ctx, config)
-    return {
-        success = true,
-        customImports = { _dummy_ = "dummy"},
-        shaderDefs = {},
-        trace = {
-            extension = false,
-            server = false,
-        },
-        inlayHints = {
-            enabled = false,
-            typeHints = false,
-            parameterHints = false,
-            structLayoutHints = false,
-            typeVerbosity = "inner",
-        },
-        diagnostics = {
-            typeErrors = true,
-            nagaParsingErrors = true,
-            nagaValidationErrors = true,
-            nagaVersion = "main",
-        }
-    }
-  end
 end
 
 local function lsp_highlight_document(client)

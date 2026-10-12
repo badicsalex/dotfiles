@@ -42,35 +42,24 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
---  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
---  use "numToStr/Comment.nvim" -- Easily comment stuff
---  use "kyazdani42/nvim-web-devicons"
   use "nvim-tree/nvim-tree.lua"
   use "nvim-tree/nvim-web-devicons"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "ahmedkhalf/project.nvim"
---  use "lewis6991/impatient.nvim"
---  use "lukas-reineke/indent-blankline.nvim"
   use "goolord/alpha-nvim"
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
-  use "DingDean/wgsl.vim"
   use "shortcuts/no-neck-pain.nvim"
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
---  use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
 
@@ -80,22 +69,12 @@ return packer.startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
---  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "arkav/lualine-lsp-progress" -- $/progress endpoint as a statusline component for lualine.nvim.
   use  "RRethy/vim-illuminate"
-  use "nvimtools/none-ls.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-ui-select.nvim"
-
-  -- Treesitter
---  use {
---    "nvim-treesitter/nvim-treesitter",
---    run = ":TSUpdate",
---  }
---  use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
