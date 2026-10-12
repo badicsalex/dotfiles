@@ -1,5 +1,3 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
 
@@ -15,49 +13,18 @@ end
 require("nvim-tree").setup {
   on_attach = on_attach,
   disable_netrw = true,
-  update_cwd = true,
+  sync_root_with_cwd = true,
   diagnostics = {
     enable = true,
     show_on_dirs = true,
-  --  icons = {
-  --    --hint = "ⓘ",
-  --    --info = "ⓘ",
-  --    --warning = "Ⓧ",
-  --    --error = "Ⓧ",
-  --  },
   },
   update_focused_file = {
     enable = true,
   },
-  --view = {
-  --  signcolumn = "yes",
-  --},
   renderer = {
     indent_markers = { enable = true },
     icons = {
       git_placement = "after",
-      glyphs = {
-  --    default = " ",
-  --    symlink = "➜",
-  --      git = {
-  --        --unstaged = "~",
-  --        --staged = "✓",
-  --        --unmerged = "?",
-  --        --renamed = "➜",
-  --        --deleted = "✗",
-  --        --untracked = "U",
-  --        --ignored = "",
-  --      },
-  --      folder = {
-  --        --default = "🗀",
-  --        --open = "🗁",
-  --        --empty = "🗀",
-  --        --empty_open = "🗁",
-  --        --symlink = "➜",
-  --        --arrow_open = "▾",
-  --        --arrow_closed = "▸",
-  --      },
-      } 
     },
   },
 }
@@ -73,13 +40,10 @@ vim.api.nvim_create_autocmd({"QuitPre"}, {
           end
         end
         if #invalid_win == #wins - 1 then
-          -- Should quit, so we close all invalid windows.
           for _, w in ipairs(invalid_win) do vim.api.nvim_win_close(w, true) end
         end
       end
 })
-
---vim.cmd [[ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() && len(filter(getbufinfo(), 'v:val.changed == 1')) == 0 | quit | endif ]]
 
 local function open_nvim_tree()
     require("nvim-tree.api").tree.open({focus=false, find_file=true})

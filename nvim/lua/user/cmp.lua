@@ -1,79 +1,31 @@
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 
-require("luasnip/loaders/from_vscode").lazy_load()
-
-local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
---   פּ ﯟ   some other good icons
-local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
-}
--- find more here: https://www.nerdfonts.com/cheat-sheet
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ["<C-e>"] = cmp.mapping {
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    },
-    -- Accept currently selected item. If none selected, `select` first item.
-    -- Set `select` to `false` to only confirm explicitly selected items.
+    ["<C-b>"] = cmp.mapping.scroll_docs(-1),
+    ["<C-f>"] = cmp.mapping.scroll_docs(1),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
-      elseif check_backspace() then
-        fallback()
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -82,13 +34,10 @@ cmp.setup {
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s" }),
   },
   formatting = {
-    format = function(entry, vim_item)
+    format = function(_, vim_item)
       local max_len = 40
       if vim_item.menu ~= nil and string.len(vim_item.menu) > max_len then
         vim_item.menu = string.sub(vim_item.menu, 1, max_len - 2) .. "…"
@@ -109,10 +58,6 @@ cmp.setup {
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
-  },
-  experimental = {
-    ghost_text = false,
-    native_menu = false,
   },
 }
 

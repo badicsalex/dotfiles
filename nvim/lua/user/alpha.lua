@@ -17,21 +17,8 @@ dashboard.section.buttons.val = {
 	dashboard.button("q", "- Quit Neovim", ":qa<CR>"),
 }
 
-local function footer()
--- NOTE: requires the fortune-mod package to work
-	-- local handle = io.popen("fortune")
-	-- local fortune = handle:read("*a")
-	-- handle:close()
-	-- return fortune
-	return "chrisatmachine.com"
-end
-
--- dashboard.section.footer.val = footer()
-
-dashboard.section.footer.opts.hl = "Type"
 dashboard.section.header.opts.hl = "Parameter"
 dashboard.section.buttons.opts.hl = "Keyword"
 
 dashboard.opts.opts.noautocmd = true
--- vim.cmd([[autocmd User AlphaReady echo 'ready']])
 require("alpha").setup(dashboard.opts)
