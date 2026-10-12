@@ -6,14 +6,5 @@ ln -sfn $SCRIPT_DIR/zsh/aliases ~/.aliases
 ln -sfn $SCRIPT_DIR/zsh/zshrc ~/.zshrc
 ln -sfn $SCRIPT_DIR/zsh/alex.zsh-theme ~/.oh-my-zsh/themes/alex.zsh-theme
 
-rm -rf ~/.config/nvim/lua
-mkdir -p ~/.config/nvim/colors
-mkdir -p ~/.config/nvim/syntax
-mkdir -p ~/.config/nvim/after/syntax
-
-ln -sfn $SCRIPT_DIR/nvim/init.lua  ~/.config/nvim/init.lua
-ln -sfn $SCRIPT_DIR/nvim/lua  ~/.config/nvim/lua
-ln -sfn $SCRIPT_DIR/nvim/monokai_ad.vim ~/.config/nvim/colors/monokai_ad.vim
-ln -sfn $SCRIPT_DIR/nvim/syntax/book.vim ~/.config/nvim/syntax/book.vim
-ln -sfn $SCRIPT_DIR/nvim/syntax/ebnf.vim ~/.config/nvim/syntax/ebnf.vim
-ln -sfn $SCRIPT_DIR/nvim/syntax/c_after.vim ~/.config/nvim/after/syntax/c.vim
+mkdir -p ~/.config
+ln -sfnT $SCRIPT_DIR/nvim ~/.config/nvim
