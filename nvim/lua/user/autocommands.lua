@@ -1,5 +1,14 @@
 vim.filetype.add { extension = { book = "book", ebnf = "ebnf" } }
 
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function(args)
+    local root = vim.bo[args.buf].buftype == "" and vim.fs.root(args.buf, ".git")
+    if root then
+      vim.fn.chdir(root)
+    end
+  end,
+})
+
 vim.cmd [[
   augroup _general_settings
     autocmd!

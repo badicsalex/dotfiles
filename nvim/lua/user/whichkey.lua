@@ -11,7 +11,6 @@ wk.setup({
 
 wk.add({
   { "<leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text" },
-  { "<leader>P", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Projects" },
   { "<leader>a", "<cmd>Alpha<cr>", desc = "Alpha" },
   { "<leader>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Buffers" },
   { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer" },

@@ -10,9 +10,6 @@ require "user.autocommands"
 require "user.plugins"
 require "user.colorscheme"
 
--- project loads a telescope extension, so telescope comes first.
-require "user.telescope"
-
 -- Plugin configs
 require "user.alpha"
 require "user.bufferline"
@@ -23,5 +20,5 @@ require "user.lsp"
 require "user.lualine"
 require "user.no-neck-pain"
 require "user.nvim-tree"
-require "user.project"
+require "user.telescope"
 require "user.whichkey"
